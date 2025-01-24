@@ -62,4 +62,17 @@ public class ProjectController : Controller
         await _context.SaveChangesAsync();
         return NoContent();
     }
+
+    // Add this method to the existing ProjectController class
+    [HttpPatch("{id}/toggle-status")]
+    public async Task<ActionResult> ToggleStatus(int id)
+    {
+        var project = await _context.Projects.FindAsync(id);
+        if (project == null) return NotFound();
+        
+        project.IsActive = !project.IsActive;
+        await _context.SaveChangesAsync();
+        
+        return NoContent();
+    }
 }

@@ -8,4 +8,10 @@ public class Project
     [Required]
     [StringLength(100)]
     public string Name { get; set; } = string.Empty;
+    
+    public bool IsActive { get; set; } = true;
+    
+    // Navigation properties
+    public ICollection<TaskItem> Tasks { get; set; } = new List<TaskItem>();
+    public ICollection<Tag> Tags { get; set; } = new List<Tag>();
 }

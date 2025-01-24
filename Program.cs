@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using ToDoList;
 
@@ -6,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 const string sitePolicy = "MyPolicy";
 //Add controllers
 builder.Services.AddControllers();
+//Json
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+// CORS Policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: sitePolicy, built =>
