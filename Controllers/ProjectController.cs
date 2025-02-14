@@ -18,14 +18,19 @@ public class ProjectController : Controller
     [HttpGet]
     public async Task<ActionResult<List<Project>>> Index()
     {
-        return await _context.Projects.ToListAsync();
+        return await _context.Projects
+            .Include(p => p.Tags)
+            .ToListAsync();
     }
     
     // GET by Id
     [HttpGet("{id}")]
     public async Task<ActionResult<Project>> Get(int id)
     {
-        var project = await _context.Projects.FindAsync(id);
+        var project = await _context.Projects
+            .Include(p => p.Tags)
+            .FirstOrDefaultAsync(p => p.Id == id);
+        
         if (project == null) return NotFound();
         return project;
     }
@@ -45,9 +50,32 @@ public class ProjectController : Controller
     {
         if (id != project.Id) return BadRequest();
         
-        _context.Entry(project).State = EntityState.Modified;
-        await _context.SaveChangesAsync();
+        // Get the existing project with its tags
+        var existingProject = await _context.Projects
+            .Include(p => p.Tags)
+            .FirstOrDefaultAsync(p => p.Id == id);
         
+        if (existingProject == null) return NotFound();
+        
+        // Update basic properties
+        existingProject.Name = project.Name;
+        existingProject.IsActive = project.IsActive;
+        
+        // Clear existing tags and add new ones
+        existingProject.Tags.Clear();
+        if (project.Tags != null)
+        {
+            foreach (var tagId in project.Tags.Select(t => t.Id))
+            {
+                var tag = await _context.Tags.FindAsync(tagId);
+                if (tag != null)
+                {
+                    existingProject.Tags.Add(tag);
+                }
+            }
+        }
+        
+        await _context.SaveChangesAsync();
         return NoContent();
     }
     
@@ -74,5 +102,38 @@ public class ProjectController : Controller
         await _context.SaveChangesAsync();
         
         return NoContent();
+    }
+
+    [HttpPost("{id}/update-tags")]
+    public async Task<ActionResult> UpdateTags(int id, [FromBody] ProjectTagUpdateModel model)
+    {
+        var project = await _context.Projects
+            .Include(p => p.Tags)
+            .FirstOrDefaultAsync(p => p.Id == id);
+        
+        if (project == null) return NotFound();
+        
+        project.Tags.Clear();
+        
+        if (model.Tags != null && model.Tags.Any())
+        {
+            foreach (var tagId in model.Tags)
+            {
+                var tag = await _context.Tags.FindAsync(tagId);
+                if (tag != null)
+                {
+                    project.Tags.Add(tag);
+                }
+            }
+        }
+        
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
+
+    public class ProjectTagUpdateModel
+    {
+        public int Id { get; set; }
+        public List<int> Tags { get; set; } = new List<int>();
     }
 }
