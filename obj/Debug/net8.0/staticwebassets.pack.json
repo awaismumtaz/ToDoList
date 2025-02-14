@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\img\\Taskly.png",
+      "PackagePath": "staticwebassets\\img\\Taskly.png"
+    },
+    {
       "Id": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\js\\icons.js",
+      "PackagePath": "staticwebassets\\js\\icons.js"
     },
     {
       "Id": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\script.js",

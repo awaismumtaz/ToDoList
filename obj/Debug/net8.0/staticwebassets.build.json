@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gokMIsv+vb59BZ95C5cM4i9XTGXOoaqb4/0Ut49rST8=",
+  "Hash": "YuZi2bCdEaTBpK7ltBK4qVdZ8n777dyMTiq3CE9pdRY=",
   "Source": "ToDoList",
   "BasePath": "_content/ToDoList",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\img\\Taskly.png",
+      "SourceId": "ToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\",
+      "BasePath": "_content/ToDoList",
+      "RelativePath": "img/Taskly.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Taskly.png"
+    },
     {
       "Identity": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\index.html",
       "SourceId": "ToDoList",
@@ -34,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\js\\icons.js",
+      "SourceId": "ToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\",
+      "BasePath": "_content/ToDoList",
+      "RelativePath": "js/icons.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\icons.js"
     },
     {
       "Identity": "C:\\Users\\groom\\OneDrive\\Desktop\\Repos\\ToDoList\\wwwroot\\script.js",
