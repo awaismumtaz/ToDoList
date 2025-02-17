@@ -334,13 +334,7 @@ setInterval(() => {
 
 // Add this initialization function
 function initializeUI() {
-    // Update site title
-    document.getElementById('siteTitle').innerHTML = `
-        <img src="./img/Taskly.png" alt="Taskly Logo" class="logo">
-        <span>Taskly</span>
-    `;
-    
-    // Rest of the initialization code
+    // Initialize section headers
     document.getElementById('projectsHeader').innerHTML = `${insertIcon('PROJECT')}Projects`;
     document.getElementById('tasksHeader').innerHTML = `${insertIcon('TASK')}Tasks`;
     document.getElementById('tagsHeader').innerHTML = `${insertIcon('TAG')}Tags`;
