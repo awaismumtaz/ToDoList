@@ -125,6 +125,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProjectController",
+    "Method": "UpdateTags",
+    "RelativePath": "Project/{id}/update-tags",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "ProjectController\u002BProjectTagUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ToDoList.Controllers.TagController",
     "Method": "Index",
     "RelativePath": "Tag",
